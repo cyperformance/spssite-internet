@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+
+const valeurs = [
+  { title: 'Inclusion', text: 'Le sport accessible à tous, quels que soient l’âge, le genre, l’origine ou les capacités physiques.' },
+  { title: 'Transparence', text: 'Une gestion claire et des comptes rendus réguliers aux partenaires et bénéficiaires.' },
+  { title: 'Excellence', text: 'Des programmes fondés sur les bonnes pratiques et évalués en continu.' },
+  { title: 'Innovation', text: 'La recherche permanente de nouvelles façons d’utiliser le sport pour transformer la société.' },
+];
+
+const objectifs = [
+  'Créer des espaces sûrs pour la pratique sportive dans les quartiers défavorisés.',
+  'Former des éducateurs sportifs à la paix et au respect.',
+  'Organiser des événements sportifs inter-communautaires.',
+  'Sensibiliser aux risques de la sédentarité.',
+  'Développer des partenariats avec des institutions locales et internationales.',
+];
+
+const equipe = [
+  { name: 'Yannis Chouet', role: 'Co-président', text: 'Préparateur physique et coach sportif.' },
+  { name: 'Louis Mercier', role: 'Co-président', text: 'Ingénieur patrimonial, adjoint aux finances.' },
+  { name: 'Dauryann Oillo-Heddar', role: 'Co-président', text: 'Doctorant-athlète en droit international du sport.' },
+];
+---
+<Base title="L’association" description="L’histoire, les valeurs et l’équipe de Sport Paix Santé : trois co-présidents unis par le sport, la paix et la santé.">
+  <section class="page-head">
+    <div class="wrap">
+      <h1>Notre histoire</h1>
+      <p class="lead">Sport Paix Santé est née de la conviction que le sport peut favoriser la transformation sociale : créer du lien, promouvoir la santé et transmettre une culture de paix.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid">
+      <article class="card"><p class="num">2024</p><h3>Création</h3><p>Création officielle de l’association et structuration de sa vision.</p></article>
+      <article class="card"><p class="num">2025</p><h3>Premiers programmes</h3><p>Lancement des premières actions concrètes sur le terrain.</p></article>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap">
+      <h2>Nos valeurs</h2>
+      <div class="grid">
+        {valeurs.map((v) => <article class="card"><h3>{v.title}</h3><p>{v.text}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Nos objectifs</h2>
+      <ul>{objectifs.map((o) => <li>{o}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap">
+      <h2>L’équipe</h2>
+      <div class="grid">
+        {equipe.map((m) => (
+          <article class="card"><h3>{m.name}</h3><p><strong>{m.role}</strong></p><p>{m.text}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

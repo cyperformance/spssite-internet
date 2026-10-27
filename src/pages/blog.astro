@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+const fmt = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' });
+---
+<Base title="Actualités" description="Les actualités et retours d’expérience de Sport Paix Santé." noindex={posts.length === 0}>
+  <section class="page-head">
+    <div class="wrap">
+      <h1>Actualités</h1>
+      <p class="lead">Nos interventions, nos événements et nos retours d’expérience.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap grid">
+      {posts.length === 0 && <p>Les premiers articles arrivent bientôt.</p>}
+      {posts.map((p) => (
+        <article class="card">
+          <p class="eyebrow"><time datetime={p.data.date.toISOString()}>{fmt.format(p.data.date)}</time></p>
+          <h2 style="font-size:1.25rem"><a href={`/blog/${p.id}`}>{p.data.title}</a></h2>
+          <p>{p.data.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

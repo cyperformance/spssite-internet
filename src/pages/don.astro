@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const paliers = [
+  { amount: '25 €', text: 'Une journée d’activités sportives pour 10 enfants.' },
+  { amount: '50 €', text: 'L’équipement d’une équipe complète en matériel sportif.' },
+  { amount: '100 €', text: 'La formation d’un éducateur sportif aux valeurs de paix et de santé.' },
+];
+---
+<Base title="Faire un don" description="Soutenez les actions de Sport Paix Santé : don en ligne sécurisé via HelloAsso, ponctuel ou mensuel.">
+  <section class="page-head">
+    <div class="wrap">
+      <h1>Soutenez notre mission</h1>
+      <p class="lead">Vos dons nous permettent de mener des actions de terrain pour un avenir plus pacifique et en meilleure santé.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid">
+      {paliers.map((p) => <article class="card"><p class="num">{p.amount}</p><p>{p.text}</p></article>)}
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap">
+      <h2>Faire un don en ligne</h2>
+      <p class="lead">Paiement sécurisé par carte bancaire via HelloAsso, ponctuel ou mensuel, au montant de votre choix. HelloAsso ne prélève aucun frais : 100 % de votre don revient à l’association.</p>
+      {site.helloAssoWidgetUrl ? (
+        <iframe
+          id="haWidget"
+          title="Formulaire de don HelloAsso"
+          src={site.helloAssoWidgetUrl}
+          style="width:100%;height:750px;border:none;"
+          loading="lazy"
+          allowtransparency="true"
+        ></iframe>
+      ) : (
+        <p class="notice">Le formulaire de don en ligne arrive très bientôt. En attendant, écrivez-nous à <a href={`mailto:${site.email}?subject=Don`}>{site.email}</a> pour faire un don par virement ou par chèque.</p>
+      )}
+      {site.helloAssoPageUrl && <p><a class="btn" href={site.helloAssoPageUrl} rel="noopener">Donner sur HelloAsso</a></p>}
+      <p>Vous préférez le virement ou le chèque ? <a href={`mailto:${site.email}?subject=Don`}>Écrivez-nous</a>.</p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+import { actions } from '../data/actions';
+---
+<Base title="Contact et demande d’intervention" description="Contactez Sport Paix Santé pour organiser une intervention dans votre entreprise, école, centre social ou club à Toulouse.">
+  <section class="page-head">
+    <div class="wrap">
+      <h1>Contact</h1>
+      <p class="lead">Une intervention à organiser, un partenariat, une question ? Écrivez-nous : nous vous répondons rapidement.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <!-- Formulaire envoyé par FormSubmit vers l'adresse de l'association.
+           Au premier envoi, FormSubmit demande de confirmer l'adresse par e-mail. -->
+      <form class="form" action={`https://formsubmit.co/${site.email}`} method="POST">
+        <input type="hidden" name="_subject" value="Nouveau message depuis sportpaixsante.fr" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value={new URL('/merci', Astro.site).toString()} />
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+        <label>Nom et prénom
+          <input type="text" name="nom" required autocomplete="name" />
+        </label>
+        <label>E-mail
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+        <label>Vous êtes
+          <select name="structure" id="structure">
+            {actions.map((a) => <option value={a.slug}>{a.title}</option>)}
+            <option value="particulier">Particulier</option>
+            <option value="autre">Autre</option>
+          </select>
+        </label>
+        <label>Nom de la structure (facultatif)
+          <input type="text" name="organisation" autocomplete="organization" />
+        </label>
+        <label>Votre message
+          <textarea name="message" required></textarea>
+        </label>
+        <p><small>Vos données servent uniquement à vous répondre. <a href="/confidentialite">En savoir plus</a>.</small></p>
+        <button class="btn" type="submit">Envoyer</button>
+      </form>
+      <p>Vous pouvez aussi nous écrire directement à <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    </div>
+  </section>
+
+  <script>
+    // Présélectionne le type de structure depuis les pages « Nos actions » (?structure=ecoles).
+    const value = new URLSearchParams(location.search).get('structure');
+    const select = document.getElementById('structure') as HTMLSelectElement | null;
+    if (value && select?.querySelector(`option[value="${CSS.escape(value)}"]`)) select.value = value;
+  </script>
+</Base>

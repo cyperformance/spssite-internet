@@ -1,0 +1,109 @@
+---
+import { getCollection } from 'astro:content';
+import { site, nav } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const { title, description = site.description, noindex = false } = Astro.props;
+const fullTitle = title ? `${title} | ${site.name}` : `${site.name} : ${site.tagline}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+
+// Le lien Actualités n'apparaît qu'une fois le premier article publié.
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const links = posts.length ? [...nav.slice(0, 2), { href: '/blog', label: 'Actualités' }, ...nav.slice(2)] : nav;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  name: site.name,
+  alternateName: site.shortName,
+  url: Astro.site?.toString(),
+  email: site.email,
+  foundingDate: String(site.foundingYear),
+  description: site.description,
+  areaServed: site.city,
+  address: { '@type': 'PostalAddress', addressLocality: site.city, addressCountry: 'FR' },
+  ...(site.linkedin && { sameAs: [site.linkedin] }),
+};
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label={`${site.name}, accueil`}>
+          <span class="brand-mark" aria-hidden="true">SPS</span>
+          <span class="brand-name">Sport Paix Santé</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+          <nav id="nav" class="nav" aria-label="Navigation principale">
+            <ul>
+              {links.map((l) => (
+                <li><a href={l.href} aria-current={path === l.href || (l.href !== '/' && path.startsWith(l.href)) ? 'page' : undefined}>{l.label}</a></li>
+              ))}
+              <li><a class="btn btn-small" href="/don">Faire un don</a></li>
+            </ul>
+          </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <p class="footer-brand">Sport Paix Santé</p>
+          <p>{site.tagline}.</p>
+          <p>Association loi 1901, {site.city}.</p>
+        </div>
+        <div>
+          <p class="footer-title">Navigation</p>
+          <ul>
+            {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+            <li><a href="/don">Faire un don</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-title">Contact</p>
+          <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+          {site.linkedin && <p><a href={site.linkedin} rel="noopener">LinkedIn</a></p>}
+          <p><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></p>
+        </div>
+      </div>
+      <p class="wrap copyright">© {new Date().getFullYear()} Association Sport Paix Santé</p>
+    </footer>
+    <script>
+      const toggle = document.querySelector('.menu-toggle');
+      toggle?.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        document.body.classList.toggle('nav-open', !open);
+      });
+    </script>
+  </body>
+</html>
