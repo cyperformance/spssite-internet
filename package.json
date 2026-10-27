@@ -1,0 +1,15 @@
+{
+  "name": "spssite-internet",
+  "private": true,
+  "type": "module",
+  "description": "Site internet de l'association Sport Paix Santé (sportpaixsante.fr).",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.4.1"
+  }
+}

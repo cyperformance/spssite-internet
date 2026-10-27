@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { actions } from '../data/actions';
+---
+<Base title="Nos actions" description="Les interventions de Sport Paix Santé en entreprise, dans les écoles et centres sociaux, et dans les clubs sportifs à Toulouse.">
+  <section class="page-head">
+    <div class="wrap">
+      <h1>Nos actions</h1>
+      <p class="lead">Des interventions sportives et socio-culturelles au service de la paix, individuelle et collective, à travers trois terrains d’action.</p>
+    </div>
+  </section>
+
+  {actions.map((a, i) => (
+    <section class={`section ${i % 2 ? 'section-soft' : ''}`} id={a.slug}>
+      <div class="wrap">
+        <h2>SPS {a.title.toLowerCase().startsWith('en ') ? a.title.toLowerCase() : `: ${a.title}`}</h2>
+        <p class="lead">{a.lead}</p>
+        <div class="grid">
+          {a.items.map((it) => (
+            <article class="card"><h3>{it.title}</h3><p>{it.text}</p></article>
+          ))}
+        </div>
+        <p><a class="more" href={`/nos-actions/${a.slug}`}>Voir la page {a.title}</a></p>
+      </div>
+    </section>
+  ))}
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta">
+        <h2>Un projet pour votre structure ?</h2>
+        <p>Chaque intervention se construit avec vous, selon vos besoins et votre public.</p>
+        <a class="btn btn-sun" href="/contact">Demander une intervention</a>
+      </div>
+    </div>
+  </section>
+</Base>

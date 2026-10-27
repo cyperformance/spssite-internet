@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const todo = 'À compléter';
+---
+<Base title="Mentions légales" noindex={!site.legal.address || !site.legal.host}>
+  <section class="page-head">
+    <div class="wrap"><h1>Mentions légales</h1></div>
+  </section>
+  <section class="section">
+    <div class="wrap prose">
+      <h2>Éditeur du site</h2>
+      <p>
+        Association Sport Paix Santé (SPS), association loi 1901 déclarée.<br />
+        RNA : {site.legal.rna}<br />
+        SIREN : {site.legal.siren}<br />
+        Siège social : {site.legal.address || <span class="todo">{todo}</span>}<br />
+        Contact : <a href={`mailto:${site.email}`}>{site.email}</a>
+      </p>
+      <p>Directeur de la publication : {site.legal.publicationDirector || <span class="todo">{todo}</span>}</p>
+
+      <h2>Hébergement</h2>
+      <p>{site.legal.host || <span class="todo">{todo}</span>}</p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>Les textes, logos et photographies de ce site sont la propriété de l’association Sport Paix Santé ou de leurs auteurs. Toute reproduction sans autorisation est interdite.</p>
+
+      <h2>Données personnelles</h2>
+      <p>Voir notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+    </div>
+  </section>
+</Base>

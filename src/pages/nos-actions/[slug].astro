@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import { actions, type Action } from '../../data/actions';
+
+export function getStaticPaths() {
+  return actions.map((action) => ({ params: { slug: action.slug }, props: { action } }));
+}
+
+const { action } = Astro.props as { action: Action };
+---
+<Base title={`${action.title} : nos interventions`} description={`${action.lead} ${action.short}`}>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow"><a href="/nos-actions">Nos actions</a></p>
+      <h1>{action.title}</h1>
+      <p class="lead">{action.lead}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid">
+        {action.items.map((it) => (
+          <article class="card"><h3>{it.title}</h3><p>{it.text}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta">
+        <h2>Construisons votre intervention</h2>
+        <p>Dites-nous qui vous êtes et ce que vous imaginez : nous revenons vers vous rapidement.</p>
+        <a class="btn btn-sun" href={`/contact?structure=${action.slug}`}>Demander une intervention</a>
+      </div>
+    </div>
+  </section>
+</Base>

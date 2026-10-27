@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.sportpaixsante.fr/sitemap-index.xml

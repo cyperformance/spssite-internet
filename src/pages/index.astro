@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import { actions } from '../data/actions';
+import { site } from '../data/site';
+
+const esprit = [
+  { title: 'Sport', text: 'Sensibiliser les jeunes à la pratique d’une activité physique et lutter contre la sédentarité.' },
+  { title: 'Paix', text: 'Transmettre une culture de paix, où l’autre est un partenaire et non un adversaire.' },
+  { title: 'Santé', text: 'Inciter chacun à prendre soin de son corps face aux enjeux de la sédentarité.' },
+];
+
+const piliers = [
+  { title: 'Sport', text: 'Ateliers, manifestations, tournois et courses de sensibilisation.' },
+  { title: 'Paix', text: 'La compétition comme moyen de s’élever soi-même et avec les autres.' },
+  { title: 'Santé', text: 'Prévention de la sédentarité, bien-être physique et mental.' },
+  { title: 'Éducation', text: 'Une transmission dès le plus jeune âge, de l’école aux associations sportives.' },
+];
+---
+<Base>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Association loi 1901 · {site.city}</p>
+      <h1>L’éducation pour la paix au cœur de nos actions</h1>
+      <p class="lead">Sport Paix Santé utilise le sport et l’activité physique pour transmettre des valeurs universelles et favoriser le vivre-ensemble, en entreprise, à l’école et dans les clubs.</p>
+      <div class="actions-row">
+        <a class="btn" href="/contact">Demander une intervention</a>
+        <a class="btn btn-ghost" href="/nos-actions">Découvrir nos actions</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">L’esprit SPS</p>
+      <h2>Sport, Paix, Santé : un triptyque pour demain</h2>
+      <div class="grid">
+        {esprit.map((e) => (
+          <article class="card"><h3>{e.title}</h3><p>{e.text}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap">
+      <p class="eyebrow">Nos trois terrains d’action</p>
+      <h2>Des interventions adaptées à chaque structure</h2>
+      <div class="grid">
+        {actions.map((a) => (
+          <article class="card">
+            <h3>{a.title}</h3>
+            <p>{a.short}</p>
+            <a class="more" href={`/nos-actions/${a.slug}`}>En savoir plus</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Les piliers de SPS</p>
+      <h2>Quatre piliers pour agir</h2>
+      <div class="grid">
+        {piliers.map((p, i) => (
+          <article class="card"><p class="num">0{i + 1}</p><h3>{p.title}</h3><p>{p.text}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta">
+        <h2>Envie de faire équipe avec nous ?</h2>
+        <p>Établissement scolaire, entreprise, club ou particulier : construisons ensemble une intervention, ou soutenez nos actions.</p>
+        <div class="actions-row">
+          <a class="btn btn-sun" href="/contact">Nous contacter</a>
+          <a class="btn btn-ghost" style="color:#fff !important;border-color:#fff" href="/don">Faire un don</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
