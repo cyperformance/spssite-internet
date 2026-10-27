@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faire un don - Sport Paix Santé</title>
+  <meta name="description" content="Soutenez les actions de Sport Paix Santé : don en ligne sécurisé via HelloAsso, ponctuel ou mensuel.">
+  <link rel="icon" type="image/jpeg" href="assets/img/logo-sps-monogramme.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=4">
+</head>
+<body>
+
+<header class="entete">
+  <div class="entete-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo-sps-monogramme.jpg" alt="Logo Sport Paix Santé">
+      <span class="brand-name">Sport<br>Paix Santé</span>
+    </a>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"
+      onclick="var n=document.getElementById('menu');var o=n.classList.toggle('ouvert');this.setAttribute('aria-expanded',o)">Menu</button>
+    <nav class="nav" id="menu" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="nos-actions.html">Nos actions</a>
+      <a href="blog.html">Blog</a>
+      <a href="notre-histoire.html">Notre histoire</a>
+      <a href="don.html" class="don actif" aria-current="page">Faire un don</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-tete">
+  <div class="conteneur">
+    <span class="etiquette">Faire un don</span>
+    <h1>Soutenez<br>notre <span class="vert">mission</span></h1>
+    <p class="accroche">
+      Votre générosité permet de transformer des vies et de construire un avenir
+      plus pacifique et plus sain pour tous.
+    </p>
+    <div class="boutons" style="margin-top: 28px;">
+      <a class="btn btn-noir" href="#donner">Donner maintenant</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="conteneur">
+    <div class="section-tete">
+      <span class="etiquette">Ce que votre don rend possible</span>
+      <h2>L'impact de<br>votre don</h2>
+      <p>Chaque contribution, petite ou grande, sème les graines d'un changement concret.</p>
+    </div>
+    <div class="montants">
+      <div class="montant"><div class="somme">25<small>&nbsp;€</small></div><p>Finance une journée d'activités sportives pour 10 enfants.</p></div>
+      <div class="montant"><div class="somme">50<small>&nbsp;€</small></div><p>Équipe une équipe complète avec du matériel sportif.</p></div>
+      <div class="montant"><div class="somme">100<small>&nbsp;€</small></div><p>Forme un éducateur sportif aux valeurs de paix et de santé.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-craie" id="donner">
+  <div class="conteneur don-grille">
+    <div>
+      <span class="etiquette" style="color: var(--vert-fonce);">Sécurisé par HelloAsso</span>
+      <h2 style="font-size: clamp(2rem, 5vw, 3.4rem); text-transform: uppercase; margin-top: 12px;">Faire un don<br>en ligne</h2>
+      <p style="margin-top: 16px; color: var(--gris);">Quelques clics suffisent, sans quitter le site.</p>
+      <ul class="don-points">
+        <li>Paiement sécurisé par carte bancaire</li>
+        <li>Don ponctuel ou mensuel, montant libre</li>
+        <li>HelloAsso ne prélève aucun frais : 100&nbsp;% de votre don revient à Sport Paix Santé</li>
+        <li>Confirmation envoyée par e-mail</li>
+      </ul>
+      <p class="don-autre">
+        Vous préférez un virement ou un chèque ?
+        <a href="mailto:contact.sportpaixsante@gmail.com?subject=Je%20souhaite%20faire%20un%20don">Écrivez-nous</a>.
+      </p>
+    </div>
+    <div class="don-widget">
+      <iframe id="haWidgetLight" title="Formulaire de don HelloAsso" allowtransparency="true" allow="payment" scrolling="auto" src="https://www.helloasso.com/associations/sport-paix-sante/formulaires/1/widget?view=form" onload="window.addEventListener('message', function(e) { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidgetLight');
+  if (dataHeight > parseFloat(haWidgetElement.height || 0)) { haWidgetElement.height = dataHeight + 'px';}})"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied">
+  <div class="conteneur">
+    <div class="pied-inner">
+      <div>
+        <img class="pied-logo" src="assets/img/logo-sps-texte.jpg" alt="Sport Paix Santé">
+        <p class="pied-slogan">L'éducation pour la paix au cœur de nos actions.</p>
+      </div>
+      <div>
+        <h4 class="etiquette">Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="nos-actions.html">Nos actions</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="notre-histoire.html">Notre histoire</a></li>
+          <li><a href="don.html">Faire un don</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="etiquette">Contact</h4>
+        <ul>
+          <li><a href="mailto:contact.sportpaixsante@gmail.com">contact.sportpaixsante@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Association Sport Paix Santé, tous droits réservés</p>
+  </div>
+</footer>
+
+</body>
+</html>
