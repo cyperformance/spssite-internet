@@ -278,9 +278,10 @@ h1, h2, h3, .titre {
   font-weight: 900;
   font-size: clamp(1.1rem, 2.4vw, 1.6rem);
   text-transform: uppercase;
+  color: var(--blanc);
   padding: 16px 0;
 }
-.bandeau-piste span::after { content: "✦"; margin: 0 28px; font-size: 0.8em; }
+.bandeau-piste span::after { content: "•"; margin: 0 28px; }
 @keyframes defile { to { transform: translateX(-50%); } }
 
 /* ---------- Sections ---------- */
