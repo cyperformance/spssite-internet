@@ -573,7 +573,7 @@ h1, h2, h3, .titre {
 
 /* ---------- Blog ---------- */
 
-.articles { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+.articles { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 28px; }
 .article-carte { border-top: 4px solid var(--noir); padding-top: 18px; display: grid; gap: 8px; }
 .article-carte .date { color: var(--vert-fonce); }
 .article-carte h3 { font-size: 1.35rem; text-transform: uppercase; }
@@ -614,3 +614,8 @@ h1, h2, h3, .titre {
   .bandeau-piste { animation: none; }
   *, *::before, *::after { transition: none !important; }
 }
+
+.article-carte .statut { justify-self: start; background: var(--vert); color: var(--blanc); padding: 6px 12px; border-radius: 999px; }
+.insecable { white-space: nowrap; }
+.article-tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.article-carte .theme { border: 2px solid var(--vert-fonce); color: var(--vert-fonce); padding: 4px 12px; border-radius: 999px; }
