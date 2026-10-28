@@ -631,3 +631,4 @@ h1, h2, h3, .titre {
 .reference .fleche { grid-column: 2; grid-row: 1 / span 2; font-size: 1.4rem; color: var(--vert-fonce); }
 .reference:hover, .reference:focus-visible { background: var(--noir); color: var(--blanc); }
 .reference:hover .reference-site, .reference:hover .fleche, .reference:focus-visible .reference-site, .reference:focus-visible .fleche { color: var(--vert); }
+.references { margin-top: 32px; }
