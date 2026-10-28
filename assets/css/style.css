@@ -623,3 +623,11 @@ h1, h2, h3, .titre {
 .jalon p + .jalon-lieu { margin-top: 18px; }
 .recit-texte .sources { font-size: 0.85rem; }
 .recit-texte .sources a { color: var(--vert-fonce); }
+.references { margin-top: 22px; display: grid; gap: 10px; max-width: 60ch; }
+.references .etiquette { color: var(--vert-fonce); }
+.reference { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; align-items: center; padding: 14px 18px; border: 2px solid var(--noir); border-radius: 14px; text-decoration: none; color: var(--noir); transition: background .2s, color .2s; }
+.reference-titre { font-weight: 700; }
+.reference-site { grid-column: 1; font-size: 0.85rem; color: var(--gris); }
+.reference .fleche { grid-column: 2; grid-row: 1 / span 2; font-size: 1.4rem; color: var(--vert-fonce); }
+.reference:hover, .reference:focus-visible { background: var(--noir); color: var(--blanc); }
+.reference:hover .reference-site, .reference:hover .fleche, .reference:focus-visible .reference-site, .reference:focus-visible .fleche { color: var(--vert); }
