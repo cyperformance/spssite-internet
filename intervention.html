@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demander une intervention - Sport Paix Santé</title>
+  <meta name="description" content="Demandez une intervention de Sport Paix Santé dans votre école, entreprise, club ou structure sociale.">
+  <link rel="icon" type="image/jpeg" href="assets/img/logo-sps-monogramme.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=15">
+</head>
+<body>
+
+<header class="entete">
+  <div class="entete-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo-sps-monogramme.jpg" alt="Logo Sport Paix Santé">
+      <span class="brand-name">Sport<br>Paix Santé</span>
+    </a>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"
+      onclick="var n=document.getElementById('menu');var o=n.classList.toggle('ouvert');this.setAttribute('aria-expanded',o)">Menu</button>
+    <nav class="nav" id="menu" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="nos-actions.html">Nos actions</a>
+      <a href="blog.html">Blog</a>
+      <a href="notre-histoire.html">Notre histoire</a>
+      <a href="don.html" class="don">Faire un don</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-tete">
+  <div class="conteneur">
+    <span class="etiquette">Écoles · Entreprises · Clubs · Structures sociales</span>
+    <h1 class="h1-long">Demander une<br><span class="vert">intervention</span></h1>
+    <p class="accroche">
+      Décrivez-nous votre structure et votre besoin. Nous revenons vers vous pour construire
+      ensemble une intervention adaptée à votre public.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="conteneur demande">
+    <form class="formulaire" id="form-intervention" action="mailto:contact.sportpaixsante@gmail.com" method="post" enctype="text/plain">
+      <fieldset>
+        <legend>Votre structure</legend>
+        <div class="champ">
+          <label for="type">Type de structure</label>
+          <select id="type" name="type" required>
+            <option value="">Choisir…</option>
+            <option>École, collège ou lycée</option>
+            <option>Centre social, MECS ou structure jeunesse</option>
+            <option>Entreprise</option>
+            <option>Club ou association sportive</option>
+            <option>Collectivité</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="champ">
+          <label for="structure">Nom de la structure</label>
+          <input id="structure" name="structure" type="text" required autocomplete="organization">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Votre besoin</legend>
+        <div class="champ">
+          <span class="label">Thèmes qui vous intéressent</span>
+          <div class="cases">
+            <label><input type="checkbox" name="theme" value="Sport"> Sport</label>
+            <label><input type="checkbox" name="theme" value="Paix"> Paix</label>
+            <label><input type="checkbox" name="theme" value="Santé"> Santé</label>
+            <label><input type="checkbox" name="theme" value="Nutrition"> Nutrition</label>
+          </div>
+        </div>
+        <div class="champ-ligne">
+          <div class="champ">
+            <label for="public">Public et nombre de participants</label>
+            <input id="public" name="public" type="text" placeholder="Ex. : une classe de 5e, 25 élèves">
+          </div>
+          <div class="champ">
+            <label for="periode">Période souhaitée</label>
+            <input id="periode" name="periode" type="text" placeholder="Ex. : janvier 2027">
+          </div>
+        </div>
+        <div class="champ">
+          <label for="message">Votre projet en quelques mots</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Vos coordonnées</legend>
+        <div class="champ-ligne">
+          <div class="champ">
+            <label for="nom">Nom et prénom</label>
+            <input id="nom" name="nom" type="text" required autocomplete="name">
+          </div>
+          <div class="champ">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+          </div>
+        </div>
+        <div class="champ">
+          <label for="tel">Téléphone <span class="facultatif">(facultatif)</span></label>
+          <input id="tel" name="tel" type="tel" autocomplete="tel">
+        </div>
+      </fieldset>
+
+      <button class="btn btn-noir" type="submit">Préparer ma demande</button>
+      <p class="note-form">
+        Le bouton ouvre votre messagerie avec votre demande déjà rédigée : il ne reste qu'à l'envoyer.
+        Rien n'est enregistré sur ce site. Voir nos <a href="mentions-legales.html#confidentialite">règles de confidentialité</a>.
+      </p>
+    </form>
+
+    <aside class="demande-cote">
+      <h2>Comment ça se passe ?</h2>
+      <ol class="etapes">
+        <li><strong>Vous nous écrivez</strong> avec ce formulaire ou directement à <a href="mailto:contact.sportpaixsante@gmail.com">contact.sportpaixsante@gmail.com</a>.</li>
+        <li><strong>On échange</strong> sur votre public, vos objectifs et vos contraintes.</li>
+        <li><strong>On construit ensemble</strong> une intervention sur mesure : ateliers, jeux, tables rondes ou événement.</li>
+      </ol>
+    </aside>
+  </div>
+</section>
+
+<script>
+document.getElementById('form-intervention').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = this;
+  if (!f.reportValidity()) return;
+  var v = function (id) { return document.getElementById(id).value.trim(); };
+  var themes = Array.prototype.map.call(f.querySelectorAll('input[name=theme]:checked'), function (c) { return c.value; }).join(', ');
+  var corps = [
+    'Type de structure : ' + v('type'),
+    'Structure : ' + v('structure'),
+    'Thèmes : ' + (themes || 'non précisé'),
+    'Public et participants : ' + (v('public') || 'non précisé'),
+    'Période souhaitée : ' + (v('periode') || 'non précisée'),
+    '',
+    v('message'),
+    '',
+    v('nom'),
+    v('email'),
+    v('tel')
+  ].join('\n');
+  var sujet = 'Demande d’intervention - ' + v('structure');
+  window.location.href = 'mailto:contact.sportpaixsante@gmail.com?subject=' + encodeURIComponent(sujet) + '&body=' + encodeURIComponent(corps);
+});
+</script>
+
+</main>
+
+<footer class="pied">
+  <div class="conteneur">
+    <div class="pied-inner">
+      <div>
+        <img class="pied-logo" src="assets/img/logo-sps-texte.jpg" alt="Sport Paix Santé">
+        <p class="pied-slogan">L'éducation pour la paix au cœur de nos actions.</p>
+      </div>
+      <div>
+        <h4 class="etiquette">Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="nos-actions.html">Nos actions</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="notre-histoire.html">Notre histoire</a></li>
+          <li><a href="don.html">Faire un don</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="etiquette">Contact</h4>
+        <ul>
+          <li><a href="intervention.html">Demander une intervention</a></li>
+          <li><a href="mailto:contact.sportpaixsante@gmail.com">contact.sportpaixsante@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Association Sport Paix Santé, tous droits réservés · <a href="mentions-legales.html">Mentions légales et confidentialité</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
