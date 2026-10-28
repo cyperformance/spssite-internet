@@ -495,7 +495,7 @@ h1, h2, h3, .titre {
 
 /* ---------- Notre histoire ---------- */
 
-.frise { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 4px solid var(--noir); }
+.frise { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 4px solid var(--noir); }
 .jalon { padding: 22px 32px 0 0; position: relative; min-width: 0; }
 .jalon::before { content: ""; position: absolute; top: -12px; left: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--vert); border: 2px solid var(--noir); }
 .jalon .annee { font-family: var(--titre); font-stretch: 125%; font-weight: 900; font-size: clamp(3rem, 7vw, 5rem); line-height: 1; }
@@ -620,3 +620,4 @@ h1, h2, h3, .titre {
 .article-tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .article-carte .theme { border: 2px solid var(--vert-fonce); color: var(--vert-fonce); padding: 4px 12px; border-radius: 999px; }
 .jalon .jalon-lieu { color: var(--vert-fonce); font-weight: 700; }
+.jalon p + .jalon-lieu { margin-top: 18px; }
