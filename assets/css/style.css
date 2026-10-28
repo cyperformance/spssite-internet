@@ -500,7 +500,7 @@ h1, h2, h3, .titre {
 .jalon::before { content: ""; position: absolute; top: -12px; left: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--vert); border: 2px solid var(--noir); }
 .jalon .annee { font-family: var(--titre); font-stretch: 125%; font-weight: 900; font-size: clamp(3rem, 7vw, 5rem); line-height: 1; }
 .jalon h3 { margin-top: 10px; font-size: 1.2rem; text-transform: uppercase; }
-.jalon p { margin-top: 8px; color: var(--gris); max-width: 40ch; }
+.jalon p { margin-top: 8px; color: var(--gris); max-width: 52ch; }
 
 .recit { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 32px 64px; align-items: start; margin-top: clamp(48px, 7vw, 88px); }
 .recit-texte p { color: var(--gris); max-width: 60ch; }
@@ -619,3 +619,4 @@ h1, h2, h3, .titre {
 .insecable { white-space: nowrap; }
 .article-tags { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .article-carte .theme { border: 2px solid var(--vert-fonce); color: var(--vert-fonce); padding: 4px 12px; border-radius: 999px; }
+.jalon .jalon-lieu { color: var(--vert-fonce); font-weight: 700; }
