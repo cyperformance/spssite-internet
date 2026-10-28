@@ -621,3 +621,5 @@ h1, h2, h3, .titre {
 .article-carte .theme { border: 2px solid var(--vert-fonce); color: var(--vert-fonce); padding: 4px 12px; border-radius: 999px; }
 .jalon .jalon-lieu { color: var(--vert-fonce); font-weight: 700; }
 .jalon p + .jalon-lieu { margin-top: 18px; }
+.recit-texte .sources { font-size: 0.85rem; }
+.recit-texte .sources a { color: var(--vert-fonce); }
